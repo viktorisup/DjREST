@@ -1,28 +1,39 @@
 import React from 'react'
-import UserList from "./User";
+//import UserList from "./User";
+import {Link} from 'react-router-dom'
 
-function NavbarItem({name, href}) {
+const Menu = () => {
     return (
-        <li className="nav-item active">
-          <a className="nav-link" to={href}>{name}</a>
-        </li>
+        <header>
+            {/* <!-- Navbar --> */}
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark bg-opacity-25">
+                <div class="text-center container-fluid">
+
+                    <div class="collapse navbar-collapse" id="navbarExample01">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            {/* <a class="nav-link" aria-current="page" href="#">Home</a> */}
+                            <Link class="nav-link" to='/users'>Пользователи</Link>
+                        </li>
+                        <li class="nav-item">
+                            {/* <a class="nav-link" href="#">Login</a> */}
+                            <Link class="nav-link" to='/projects'>Проекты</Link>
+                        </li>
+
+                        <li class="nav-item">
+                            {/* <a class="nav-link" href="#">About</a> */}
+                            <Link class="nav-link" to='/todos'>Задачи</Link>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            {/* <!-- Navbar --> */}
+        </header>
     )
 }
 
 
-export default function Navbar({navbarItems}) {
-    return (
-        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div className="collapse navbar-collapse" id="navbarCollapse">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  {navbarItems.map((item) => <NavbarItem name={item.name} href={item.href} />)}
-                </li>
-              </ul>
-              <form className="form-inline mt-2 mt-md-0">
-              </form>
-            </div>
-          </nav>
-    )
-}
+
+export default Menu
 
