@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.renderers import JSONRenderer
-from .serializers import ProjectSerializer, ToDoSerializer
-from .models import Project, ToDo
+from todoapp.serializers import ProjectSerializer, ToDoSerializer
+from todoapp.models import Project, ToDo
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
