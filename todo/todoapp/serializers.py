@@ -7,11 +7,13 @@ class ProjectSerializer(ModelSerializer):
 
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = ['name', 'repository', 'users']
+        #fields = '__all__'
 
 
 class ToDoSerializer(ModelSerializer):
 
     class Meta:
         model = ToDo
-        exclude = ('is_active')
+        fields = ['project', 'text', 'create_at', 'update_at', 'user', 'is_active']
+        #exclude = ('is_active')
