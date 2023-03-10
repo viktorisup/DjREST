@@ -1,17 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-
-import './bootstrap/css/bootstrap.min.css'
-import './bootstrap/css/sticky-footer-navbar.css'
-import Footer from './components/Footer.js'
-import Navbar from './components/Menu.js'
-import UserList from './components/User.js'
+import './App.css';
+import UserList from "./components/Users";
+import ToDoList from './components/ToDo.js'
 import ProjectList from './components/Project.js'
 import UserProjects from './components/UserProject.js'
 import Er404  from './components/Er404.js'
-import axios from 'axios'
-import {HashRouter, Route, Routes, Navigate, BrowserRouter} from 'react-router-dom'
-
+import axios from "axios";
+//import Menu from "./components/Menu";
+import Footer from "./components/Footer";
+import LoginForm from './components/Auth.js';
+import Cookies from 'universal-cookie';
+import {Routes, Route, Navigate, BrowserRouter, Link, useLocation} from 'react-router-dom';
 
 const NotFound = () => {
     let location = useLocation()
@@ -92,7 +91,9 @@ class App extends React.Component {
                 'Authorization': 'Token ' + this.state.token
             }
         }
-        return []
+        return {
+            'Accept': 'application/json; version=2.0'
+        }
     }
 
 
