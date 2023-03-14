@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'graphene_django',
     'corsheaders',
     'userapp',
     'todoapp',
@@ -81,7 +82,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'todo.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -135,6 +135,7 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'userapp.User'
 
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -169,6 +170,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_VERSIONING_CLASS':'rest_framework.versioning.AcceptHeaderVersioning',
+}
+
+GRAPHENE = {
+"SCHEMA": "todo.schema.schema"
 }
 
 
