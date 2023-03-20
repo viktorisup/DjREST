@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'userapp',
     'todoapp',
     'rest_framework.authtoken',
+    #'rest_framework_simplejwt',
     'drf_yasg',
 ]
 
@@ -134,6 +135,8 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'userapp.User'
 
+JSON_PATH = "additionally/json"
+
 
 
 # Default primary key field type
@@ -168,9 +171,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_VERSIONING_CLASS':'rest_framework.versioning.AcceptHeaderVersioning',
 }
+
+if DEBUG:
+    REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"].append("rest_framework.renderers.BrowsableAPIRenderer")
 
 GRAPHENE = {
 "SCHEMA": "todo.schema.schema"

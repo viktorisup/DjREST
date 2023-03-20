@@ -1,45 +1,42 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from "react"
 
-
-const UserItem = ({users}) => {
-   return (
-            <tr>
-                <td>
-                    <Link to={`user/${users.username}`}>{users.username}</Link>
-                </td>
-                <td>
-                    {users.first_name}
-                </td>
-                <td>
-                    {users.last_name}
-                </td>
-                <td>
-                    {users.email}
-                </td>
-            </tr>
-   )
+const UserItem = ({ user }) => {
+    return (
+        <tr>
+            <td>
+                {user.username}
+            </td>
+            <td>
+                {user.first_name}
+            </td>
+            <td>
+                {user.last_name}
+            </td>
+            <td>
+                {user.email}
+            </td>
+        </tr>
+    )
 }
 
-const UserList = ({users}) => {
-    console.log({users})
+const UserList = ({ users }) => {
     return (
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">User Name</th>
-                    <th scope="col">First name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {users.map((user) => <UserItem users={user} />)}
-            </tbody>
+        <table>
+            <th>
+                Ник
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                email
+            </th>
+            {users.map((user) => <UserItem user={user} />)}
         </table>
     )
- }
+}
 
-
- export default UserList
+export default UserList

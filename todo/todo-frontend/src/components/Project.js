@@ -1,36 +1,45 @@
-import React from 'react'
+import React from "react"
+import { Link } from "react-router-dom"
 
 
-
-const ProjectItem = ({project}) => {
-   return (
-            <tr>
-                <td>
-                    {project.name}
-                </td>
-                <td>
-                    {project.repository}
-                </td>
-            </tr>
-   )
+const ProjectItem = ({ project, delete_project }) => {
+    return (
+        < tr >
+            <td>
+                <Link to={`/project/${project.id}`}>{project.title}</Link>
+            </td>
+            <td>
+                {project.repo_link}
+            </td>
+            <td>
+                {project.users}
+            </td>
+            <td><button onClick={() => delete_project(project.id)} type='button'>Удалить проект</button></td>
+        </tr >
+    )
 }
 
-const ProjectList = ({projects}) => {
-    // console.log({projects})
+
+
+const ProjectList = ({ projects, delete_project }) => {
+
     return (
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Repository</th>
-                </tr>
-            </thead>
-            <tbody>
-                {projects.map((project) => <ProjectItem project={project} />)}
-            </tbody>
-        </table>
+        <div>
+            <table>
+                <th>
+                    Название
+                </th>
+                <th>
+                    Ссылка
+                </th>
+                <th>
+                    Пользователи
+                </th>
+                <th></th>
+                {projects.map((project) => <ProjectItem project={project} delete_project={delete_project} />)}
+            </table>
+        </div>
     )
- }
+}
 
-
- export default ProjectList
+export default ProjectList

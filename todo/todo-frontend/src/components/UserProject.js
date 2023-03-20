@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+//import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'todo/todo-frontend/src/bootstrap/css/bootstrap.min.css'
 
 
 const ProjectItem = ({item}) => {
